@@ -179,11 +179,8 @@ let addIntern = function() {
 let renderHTML = function (arr) {
   console.log(arr);
 
-  //file name
-  let fileName = "index.html";
-
-  fs.writeFile(fileName, prepareInfo(arr), (err) => 
-    err ? console.error("There is an error") : console.log("Saved successfully")
+  fs.writeFile('dist/index.html', prepareInfo(arr), (err) => 
+    err ? console.error("Unable to writeFile") : console.log("Saved successfully")
   );
 
 }
