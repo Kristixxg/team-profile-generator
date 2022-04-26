@@ -145,36 +145,6 @@ let addIntern = function() {
 
 
 
-
-
-
-/*
-[
-  Manager {
-    name: 'Banana',
-    id: '100',
-    email: 'banana@gmail.com',
-    role: 'Manager',
-    officeNumber: '415-555-5555'
-  },
-  Engineer {
-    name: 'Cat',
-    id: '110',
-    email: 'cat@fake.com',
-    role: 'Engineer',
-    github: 'catie'
-  },
-  Intern {
-    name: 'David',
-    id: '130',
-    email: 'david@fake.com',
-    role: 'Intern',
-    school: 'AAA'
-  }
-]
-*/
-
-
 //write new html file with data array being team
 let renderHTML = function (arr) {
   console.log("renderHTML: ", arr);
