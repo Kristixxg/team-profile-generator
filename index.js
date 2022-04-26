@@ -206,13 +206,13 @@ let prepareInfo = function(arr) {
       } else if (property === "github") {
         line += `<p class="bg-light text-capitalize">github: <a target="#" href="https://github.com/${object["github"]}">${object["github"]}</a></p>`;
       } else if (property === "email") {
-        line += `<p class="bg-light text-capitalize">email: <a href = "mailto: ${object["email"]}">${object["email"]}</a></p>`;
+        line += `<p class="bg-light ">Email: <a href = "mailto: ${object["email"]}">${object["email"]}</a></p>`;
       } else {
         line += `<p class="card-text text-capitalize bg-light">${property}: ${object[property]}</p>`;
       }
 
     }
-    let card = '<div class="card col-3 m-2 p-2 display-5">'+ line + '</div>';
+    let card = '<div class="card col-3 mx-2 my-5 p-2 display-5">'+ line + '</div>';
     cards += card;
   });
 
