@@ -177,7 +177,7 @@ let addIntern = function() {
 
 //write new html file with data array being team
 let renderHTML = function (arr) {
-  console.log(arr);
+  console.log("renderHTML: ", arr);
 
   fs.writeFile('dist/index.html', prepareInfo(arr), (err) => 
     err ? console.error("Unable to writeFile") : console.log("Saved successfully")
@@ -185,10 +185,37 @@ let renderHTML = function (arr) {
 
 }
 
-   
+
 
 //prepare data
+// make empty string to keep cards
+// add info to cards string
+
+
 let prepareInfo = function(arr) {
+
+  let cards = "";
+
+  arr.forEach(object => {
+    let line = "";
+  
+    for (const property in object) {
+
+      if (property === "name") {
+        line += `<p class="card-title bg-primary p-1 text-white text-capitalize">${object[property]}</p>`;
+      } else if (property === "github") {
+        line += `<p class="bg-light text-capitalize">github: <a target="#" href="https://github.com/${object["github"]}">${object["github"]}</a></p>`;
+      } else if (property === "email") {
+        line += `<p class="bg-light text-capitalize">email: <a href = "mailto: ${object["email"]}">${object["email"]}</a></p>`;
+      } else {
+        line += `<p class="card-text text-capitalize bg-light">${property}: ${object[property]}</p>`;
+      }
+
+    }
+    let card = '<div class="card col-3 m-2 p-2 display-5">'+ line + '</div>';
+    cards += card;
+  });
+
   // return prep'ed data
   return `<!DOCTYPE html>
   <html lang="en">
@@ -207,36 +234,15 @@ let prepareInfo = function(arr) {
   <body>
       <div class="container" id="team">
           <div class="row">
-              <div class="col-12 text-center bg-success my-2 py-2 display-2 text-white">My Team</div>
+              <div class="col-12 text-center bg-primary my-2 py-4 display-4 flex-wrap text-white">My Team</div>
           </div>
-          <div class="row" id="cards">
+          <div class="row d-flex justify-content-around" id="cards">
+            ${cards}
           </div>
       </div>
   
   
-  
-      <!-- Internal script -->
-      <script>
-  
-          const cardsEl = document.querySelector('#cards');
-  
-          function innerInfo(arr) {
-          
-            arr.forEach(object => {
-                  const card = document.createElement('div');
-                  for (const property in object) {
-                      const line = document.createElement('p');
-                      line.innerText = "${property}: ${object[property]}";
-                      // console.log("${property}: ${object[property]}"); 
-                      card.appendChild(line);
-                  }
-                  cardsEl.appendChild(card);
-              });
-          }
-  
-          innerInfo();
-     
-      </script>
+
       <!-- Bootstrap -->
       <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
