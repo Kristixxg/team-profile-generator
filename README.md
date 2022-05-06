@@ -22,22 +22,32 @@ npm install
 node index.js
 ```
 
-Example of a team profile generated in HTML:
+## Video Walk-through
 
-<img src="assets/Screen%20Shot%202022-04-25%20at%209.10.41%20PM.png" width="600">
+- Demonstration of how to invoke the application from the command line
 
-Video Walk-through:
-1. collect team information
+<img src="assets/invokeApp.gif" width="900">
 
-![GIF](assets/team-profile-generator(collectInfo).gif)
+- Demonstrate the functionality of the team profile generator
+    - prompts user questions
+    - how a user would enter responses to all of the prompt
 
-2. generate HTML file
+<img src="assets/team-profile-generator(collectInfo).gif" width="900">
 
-![GIF](assets/team-profile-generator(html).gif)
+2. Demonstrate a generated HTML file and shows a generated HTML file that matches the user input
 
-3. tests with Jest
+<img src="assets/team-profile-generator(html).gif" width="900">
 
-![GIF](assets/Untitled_%20Apr%2025%2C%202022%209_14%20PM.gif)
+<img src="assets/hmtlpic.png" width="900">
+
+3. Tests with Jest showing all four tests passing from the command line
+
+<img src="assets/Untitled_%20Apr%2025%2C%202022%209_14%20PM.gif" width="900">
+
+
+## HTML Example
+
+<img src="assets/Screen%20Shot%202022-04-25%20at%209.10.41%20PM.png" width="900">
 
 ## License
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
